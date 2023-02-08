@@ -50,3 +50,14 @@ ville@RB18:~$ docker run -it devopsdockeruh/pull_exercise
 You found the correct password. Secret message is:
 "This is the secret message"
 ```
+
+## Exercise 1.9: Volumes
+```
+docker run -v "$(pwd)/1.9/text.log:/usr/src/app/text.log" devopsdockeruh/simple-web-service
+```
+
+## Exercise 1.10: Ports open
+"web-server" was the image created in 1.7
+```
+$ docker run -p 127.0.0.1:8080:8080 web-server
+```
