@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:13.2-alpine
+    restart: unless-stopped
+    container_name: db_postgres
+    environment:
+      POSTGRES_PASSWORD: salasana123
+
+  frontend:
+    build: ./example-frontend
+    image: part1-frontend
+    ports:
+      - "5000:5000"
+  redis:
+    image: redis:7.0.8-alpine
+    container_name: redis
+    command: redis-server --save 60 1 --loglevel warning
+  backend:
+    build: ./example-backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_PASSWORD=salasana123
+    image: part1-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
