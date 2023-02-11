@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   frontend:
-    build: ./example-frontend
+    build: ../examples/example-frontend
     image: part1-frontend
     ports:
       - "5000:5000"
@@ -11,7 +11,7 @@ services:
     container_name: redis
     command: redis-server --save 60 1 --loglevel warning
   backend:
-    build: ./example-backend
+    build: ../examples/example-backend
     environment:
       - REDIS_HOST=redis
     image: part1-backend
