@@ -1,4 +1,4 @@
-## Exercise 1.8: Image for script
+## Exercise 1.7: Image for script
 ```
 ville@RB18:~/repos/devops-with-docker/part-1/1.8$ docker build . -t curler
 
